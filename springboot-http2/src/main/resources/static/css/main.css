@@ -1,0 +1,195 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+
+h2 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: #333;
+    margin-top: 0;
+}
+
+h3 {
+    font-family: sans-serif;
+    color: #555;
+    margin-top: 0;
+}
+
+strong {
+    font-weight: 700;
+    background-color: yellow;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+
+.section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.first-section {
+    border-left: 4px solid #007bff;
+}
+
+.second-section {
+    border-left: 4px solid #28a745;
+}
+
+.third-section {
+    border-left: 4px solid #28a745;
+}
+
+.download-container {
+    margin-bottom: 30px;
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.file-name {
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+}
+
+.download-btn,
+.download-all-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover,
+.download-all-btn:hover {
+    background-color: #0056b3;
+}
+
+.download-all-btn {
+    background-color: #28a745;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.download-all-btn:hover {
+    background-color: #218838;
+}
+
+.download-all-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-left: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    background-color: #007bff;
+    width: 0%;
+    transition: width 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-bar.active::before {
+    animation: progress 3s ease-in-out;
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.info-panel {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.info-panel ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.info-panel li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.info-panel li:last-child {
+    border-bottom: none;
+}
+
+.info-panel li::before {
+    content: "✓ ";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 100px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 60%;
+    height: auto;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTTP/2 Demo - Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+
+    <!-- preload js -->
+    <script type="text/javascript" src="/js/main.js" rel="preload"></script>
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/css/main.css" as="style">
+
+    <!-- Preload critical JavaScript -->
+    <link rel="preload" href="/js/main.js" as="script">
+
+    <!-- Preload critical image (e.g., above-the-fold content) -->
+    <link rel="preload" href="/imgs/img.png" as="image">
+
+    <link href="/css/main.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="section">
+        <!-- First Section: Info on Http/2 version. -->
+        <div class="first-section">
+            <div class="info-panel">
+                <h3>HTTP/2 Features</h3>
+                <ul>
+                    <li>Stream prioritization for optimal resource loading.</li>
+                    <li>Multiplexing for concurrent downloads.</li>
+                    <li>Binary protocol for improved performance.</li>
+                    <li>HPACK to reduce header size.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section second-section">
+            <img class="gallery img" src="/imgs/img.png" alt="Cinque Terre" width="500" height="495">
+        </div>
+        <!-- Second Section: HTTP/2 File Download -->
+        <div class="section third-section">
+            <h2>HTTP/2 File Download with Prioritization</h2>
+            <div class="download-container">
+                <h3>Download Files</h3>
+                <div class="file-list">
+                    <div class="file-item">
+                        <span class="file-name">File Download with (High Priority)</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-1', 'high', 'download-time-1')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-1"></div>
+                        <div id="download-time-1" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">File Download with (Medium Priority)</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-2', 'medium', 'download-time-2')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-2"></div>
+                        <div id="download-time-2" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">File Download with (Low Priority)</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-3', 'low', 'download-time-3')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-3"></div>
+                        <div id="download-time-3" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="download-all-container">
+                        <button type="button" onclick="downloadAllFiles()" class="download-all-btn">Download All Files</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

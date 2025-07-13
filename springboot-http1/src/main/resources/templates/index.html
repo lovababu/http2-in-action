@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTTP/1.1 - Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
+    <link href="/css/main.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="section">
+        <!-- Section: HTTP/1.1 File Download -->
+        <div class="section first-section">
+            <h2>HTTP/2 File Download with Prioritization</h2>
+            <div class="download-container">
+                <h3>Download Files</h3>
+                <div class="file-list">
+                    <div class="file-item">
+                        <span class="file-name">File Download Attempt 1</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-1', 'download-time-1')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-1"></div>
+                        <div id="download-time-1" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">File Download Attempt 2</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-2', 'download-time-2')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-2"></div>
+                        <div id="download-time-2" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">File Download Attempt 3</span>
+                        <button type="button" onclick="downloadFile('MLCourse.pdf', 'progress-id-3', 'download-time-3')" class="download-btn">Download</button>
+                        <div class="progress-bar" id="progress-id-3"></div>
+                        <div id="download-time-3" style="margin-top:10px;color:#28a745;font-size:0.95em;"></div>
+                    </div>
+                    <div class="download-all-container">
+                        <button type="button" onclick="downloadAllFiles()" class="download-all-btn">Download All Files</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
