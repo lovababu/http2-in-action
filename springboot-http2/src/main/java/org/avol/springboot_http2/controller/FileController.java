@@ -17,10 +17,10 @@ public class FileController {
     }
 
     @GetMapping("/download/{fileName}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName,
+    public ResponseEntity<Resource> downloadFile(@PathVariable(value = "fileName") String fileName,
                                                  @RequestHeader(value = "X-Priority", defaultValue = "medium") String priority) {
         try {
-            Resource resource = new ClassPathResource("static/pdfs/" + fileName.replaceAll("\\d", ""));
+            Resource resource = new ClassPathResource("static/pdfs/" + fileName);
 
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + fileName);

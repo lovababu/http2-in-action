@@ -90,9 +90,9 @@ async function downloadWithProgress(response, progressBar) {
 // Function to download all files with proper prioritization
 function downloadAllFiles() {
     const files = [
-        { name: 'MLCourse1.pdf', progress_id: 'progress-id-1', priority: 'high', timeline_id: 'download-time-1' },
-        { name: 'MLCourse2.pdf', progress_id: 'progress-id-2', priority: 'medium', timeline_id: 'download-time-2' },
-        { name: 'MLCourse3.pdf', progress_id: 'progress-id-3', priority: 'low', timeline_id: 'download-time-3' }
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-1', priority: 'high', timeline_id: 'download-time-1' },
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-2', priority: 'medium', timeline_id: 'download-time-2' },
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-3', priority: 'low', timeline_id: 'download-time-3' }
     ];
 
     // Sort files by priority for HTTP/2 stream prioritization

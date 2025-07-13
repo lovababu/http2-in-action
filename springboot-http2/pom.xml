@@ -6,10 +6,11 @@
 		<groupId>org.avol.http2</groupId>
 		<artifactId>http2-in-action</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>springboot-http2</artifactId>
 	<name>springboot-http2-demo</name>
+	<version>1.0-SNAPSHOT</version>
 	<properties>
 		<java.version>24</java.version>
 	</properties>
@@ -32,20 +33,5 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
