@@ -10,12 +10,11 @@ HTTP/2 offers significant performance advantages over HTTP/1.1 through, and it u
 - Connection Efficiency
 
 ### Multiplexing and Request Prioritization
-```markdown
 - Multiple requests and responses can be sent concurrently over a single connection, eliminating head-of-line blocking found in HTTP/1.1.
 - Each stream, request, or response can be prioritized, allowing critical resources to be delivered sooner.
 - In contrast, HTTP/1.1 processes requests and responses sequentially, while HTTP/2 enables concurrent communication over a single connection.
 - HTTP/2 replaces HTTP/1.1's chunked-transfer encoding with its own more efficient mechanism for data streaming.  
-```
+
 #### What is Head-Of-Line blocking
 Head-of-line blocking is a performance bottleneck that occurs when a single delayed request or packet prevents others from being processed, even if they’re ready. It shows up in different layers of HTTP communication.   
 
@@ -58,18 +57,20 @@ You can see the difference in loading time of static content here,
 
 It takes advantage of HTTP/2 multiplexing, and loads resources in parallel.
 
-**Early Fetching:** It allows critical resources (like fonts, scripts, stylesheets, or images) to be downloaded early in the page lifecycle.
-**Non-blocking:** These resources are fetched without blocking HTML parsing or rendering.
-**Separation of Fetch & Execution:** You can preload a script but choose when to execute it later.
+- **Early Fetching:** It allows critical resources (like fonts, scripts, stylesheets, or images) to be downloaded early in the page lifecycle.  
+- **Non-blocking:** These resources are fetched without blocking HTML parsing or rendering.  
+- **Separation of Fetch & Execution:** You can preload a script but choose when to execute it later.
 
-**Connection Efficiency**: While HTTP/1.1 processes requests and responses sequentially, HTTP/2 handles multiple concurrent streams on one connection.  
+## Connection Efficiency  
+
+While HTTP/1.1 processes requests and responses sequentially, HTTP/2 handles multiple concurrent streams on one connection.  
 
 ## Header Compression  
 One of the major performance upgrades in HTTP/2 over HTTP/1.1 is how it handles header compression.  
 HTTP/2 introduces a dedicated compression algorithm called **HPACK**, designed specifically for headers:  
-**Binary Encoding:** Headers are encoded in binary, making them smaller and faster to parse.
-**Huffman Coding:** HPACK uses Huffman encoding to shrink individual header values efficiently.
-**Header Tables:** Both client and server maintain dynamic tables of previously sent headers. If a header repeats, only a reference is sent instead of the full string
+- **Binary Encoding:** Headers are encoded in binary, making them smaller and faster to parse.  
+- **Huffman Coding:** HPACK uses Huffman encoding to shrink individual header values efficiently.  
+- **Header Tables:** Both client and server maintain dynamic tables of previously sent headers. If a header repeats, only a reference is sent instead of the full string
 
 ## Server Push
 Enables server to proactively send resources to the client. - Deprecated in HTTP/3
