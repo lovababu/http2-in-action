@@ -9,7 +9,7 @@ function downloadFile(fileName, progress_id, priority, timeline_id) {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache',
-            'X-Priority': priority // Custom header for priority
+            'X-Stream-Priority': priority // Custom header for priority
         }
     };
     const timeElem = document.getElementById(`${timeline_id}`);
@@ -87,12 +87,12 @@ async function downloadWithProgress(response, progressBar) {
     return new Blob(chunks);
 }
 
-// Function to download all files with proper prioritization
+// Function to download all files with proper prioritization 1-high, 2-medium, 3-low
 function downloadAllFiles() {
     const files = [
-        { name: 'MLCourse.pdf', progress_id: 'progress-id-1', priority: 'high', timeline_id: 'download-time-1' },
-        { name: 'MLCourse.pdf', progress_id: 'progress-id-2', priority: 'medium', timeline_id: 'download-time-2' },
-        { name: 'MLCourse.pdf', progress_id: 'progress-id-3', priority: 'low', timeline_id: 'download-time-3' }
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-1', priority: '1', timeline_id: 'download-time-1' },
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-2', priority: '2', timeline_id: 'download-time-2' },
+        { name: 'MLCourse.pdf', progress_id: 'progress-id-3', priority: '3', timeline_id: 'download-time-3' }
     ];
 
     // Sort files by priority for HTTP/2 stream prioritization
@@ -103,6 +103,6 @@ function downloadAllFiles() {
     files.forEach((file, index) => {
         setTimeout(() => {
             downloadFile(file.name, file.progress_id, file.priority, file.timeline_id);
-        }, index * 500); // 500ms delay between each download
+        });
     });
 }

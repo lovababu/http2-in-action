@@ -98,6 +98,6 @@ function downloadAllFiles() {
     files.forEach((file, index) => {
         setTimeout(() => {
             downloadFile(file.name, file.progress_id, file.timeline_id);
-        }, index * 0); // 500ms delay between each download
+        });
     });
 }
