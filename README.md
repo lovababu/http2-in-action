@@ -1,6 +1,5 @@
 # Spring-boot Project to Demonstrate HTTP/2 Protocol.
-Through this application I am going to demonstrate how to enable HTTP/2 protocol on Springboot application,   
-and will try to demonstrate HTTP/2 protocol version capabilities over HTTP/1.1 protocol. 
+This application demonstrates how to enable the HTTP/2 protocol in a Spring Boot project and highlights the capabilities of HTTP/2 compared to HTTP/1.1.
 
 ## HTTP/2 over HTTP/1.1.
 HTTP/2 offers significant performance advantages over HTTP/1.1 through, and it uses binary format for communication, which is more efficient for parsing and processing by computers.
