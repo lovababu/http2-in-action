@@ -15,10 +15,10 @@ HTTP/2 offers significant performance advantages over HTTP/1.1 through, and it u
 - In contrast, HTTP/1.1 processes requests and responses sequentially, while HTTP/2 enables concurrent communication over a single connection.
 - HTTP/2 replaces HTTP/1.1's chunked-transfer encoding with its own more efficient mechanism for data streaming.  
 
-#### What is Head-Of-Line blocking
+> **_Head-Of-Line blocking_** : 
 Head-of-line blocking is a performance bottleneck that occurs when a single delayed request or packet prevents others from being processed, even if they’re ready. It shows up in different layers of HTTP communication.   
 
-**Let's understand through logs, below logs captured from both HTTP/1.1 and HTTP/2 Spring boot apps.**  
+**Let's understand _Multiplexing_ through logs, below logs captured from both HTTP/1.1 and HTTP/2 Spring boot apps.**  
 
 You can clearly see HTTP/1.1 using different connection for service each request and response, where in HTTP/2 logs same connection is being reused.  
 
@@ -29,6 +29,7 @@ You can clearly see HTTP/1.1 using different connection for service each request
 ![http_2_logs.png](images/http_2_logs.png)
 
 **Now, let's understand the Request Prioritization**  
+
 [main.js](springboot-http2/src/main/resources/static/js/main.js) is where i am initiating remote http call from to the Springboot server, here is the piece of code with priority setting.
 ```html
     const fetchOptions = {
@@ -76,25 +77,24 @@ HTTP/2 introduces a dedicated compression algorithm called **HPACK**, designed s
 Enables server to proactively send resources to the client. - Deprecated in HTTP/3
 
 # HTTP/3 features
-- QUIC Protocol: HTTP/3 uses QUIC (officially introduced by google in 2021) as a transport layer network protocol which built on UDP.
-- Connection Setup: HTTP/3 QUIC allows for faster connection establishment with 0-RTT (Zero - Round Trip Time) handshake, compared to the multi-round trip handshake by HTTP/1.1 and HTTP/2.
-- Packet Loss Handling: Use of QUIC provides better resilience to Packet loss, minimizing the impact of performance.  
-- Multiplexing: HTTP/3 uses QUIC for multiplexing, which is more resilient to head-of-line blocking.  
-- Header Compression: HTTP/3 continue to use HPACK for compression.  
+- **QUIC Protocol:** HTTP/3 uses QUIC (officially introduced by google in 2021) as a transport layer network protocol which built on UDP.
+- **Connection Setup:** HTTP/3 QUIC allows for faster connection establishment with 0-RTT (Zero - Round Trip Time) handshake, compared to the multi-round trip handshake by HTTP/1.1 and HTTP/2.
+- **Packet Loss Handling:** Use of QUIC provides better resilience to Packet loss, minimizing the impact of performance.  
+- **Multiplexing:** HTTP/3 uses QUIC for multiplexing, which is more resilient to head-of-line blocking.  
+- **Header Compression:** HTTP/3 continue to use HPACK for compression.  
 
-#### What is QUIC protocol by google.
+> **_QUIC_ protocol by google**: 
 QUIC (Quick UDP Internet Connections) is a modern transport layer protocol developed by Google and standardized by the IETF (RFC 9000).   
 It’s designed to overcome the limitations of TCP and HTTP/2, especially around latency, security, and head-of-line blocking.  
-
-**Traditional HTTP/2 runs over TCP, which:**
-- Requires multiple round trips for connection setup (SYN, SYN-ACK, ACK, TLS handshake).
-- Suffers from head-of-line blocking at the transport layer.
-- Has slow recovery from packet loss due to in-order delivery guarantees.
-**QUIC solves these by:**
-- Using UDP instead of TCP.
-- Integrating TLS 1.3 directly into the protocol.
-- Supporting multiplexed streams without TCP’s limitations.
-- It encrypts everything, including headers, making it harder for middleboxes to inspect traffic. 
+**Traditional HTTP/2 runs over TCP, which:**  
+    - Requires multiple round trips for connection setup (SYN, SYN-ACK, ACK, TLS handshake).  
+    - Suffers from head-of-line blocking at the transport layer.  
+    - Has slow recovery from packet loss due to in-order delivery guarantees.  
+**QUIC solves these by:**  
+    - Using UDP instead of TCP.  
+    - Integrating TLS 1.3 directly into the protocol.  
+    - Supporting multiplexed streams without TCP’s limitations.  
+    - It encrypts everything, including headers, making it harder for middleboxes to inspect traffic.   
 
 # How to test the sample codes.
 
@@ -102,12 +102,12 @@ It’s designed to overcome the limitations of TCP and HTTP/2, especially around
 - Java 17 or above
 - Maven
 - HTTPS certificate (included: keystore.p12)
-- 
+
 ## Enabling HTTP/2 in Spring Boot  
-**Note:** 
-- SSL Setup is mandatory to enable HTTP/2 protocol version. 
-- Self-signed certificate is part of this repo, else create your own by fallowing below steps. HTTP/2 supports only TLS 1.2+
-- HTTP/2 supports only TLS 1.2+
+> **Note:**   
+    - SSL Setup is mandatory to enable HTTP/2 protocol version.   
+    - Self-signed certificate is part of this repo, else create your own by fallowing below steps.    
+    - HTTP/2 supports only TLS 1.2+  
 
 ### Create Self-Signed Certificate using keytool.  
 
